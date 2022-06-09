@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-04T00:06:11 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RMateria" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="968" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f6b7266-4822-40c5-8e6e-ec200a210603">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MeConecto3"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="aW52ZXN0aWdhY2lvbjIuYWRtaW5pc3RyYXRpdm9zICwxNSwxNSwzYjRjMzQwZS02Zjc5LTRjY2It&#xA;YTY3Ni1mZThmMDMwNzQ4ZWM7aW52ZXN0aWdhY2lvbjIuaW5zdGl0dWNpb25hbCAsMTUxLDE4NSxm&#xA;YmIxZGFkMi1iN2YzLTQ2MTgtODFiZi04NzFkYjU4ZWE0ZmU7"/>
+	<parameter name="gesti" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT investigacion2.administrativos.grado,
+	investigacion2.administrativos.apellidos,
+	investigacion2.administrativos.nombres,
+	investigacion2.administrativos.telf,
+	investigacion2.administrativos.email,
+	investigacion2.administrativos.cargo,
+	investigacion2.administrativos.poa,
+	investigacion2.administrativos.producto,
+	investigacion2.administrativos.`responsableR`,
+	investigacion2.administrativos.cump,
+	investigacion2.administrativos.ponderacion,
+	investigacion2.institucional.`areaTematica`
+FROM investigacion2.administrativos,
+	investigacion2.institucional
+WHERE 
+	 investigacion2.administrativos.gestion = investigacion2.institucional.gestion 
+	 AND investigacion2.administrativos.`codigoAT` = investigacion2.institucional.`codigoAT` 
+	 AND investigacion2.institucional.gestion = $P{gesti} 
+ORDER BY investigacion2.administrativos.apellidos ASC,
+	investigacion2.administrativos.nombres ASC]]>
+	</queryString>
+	<field name="grado" class="java.lang.String"/>
+	<field name="apellidos" class="java.lang.String"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="telf" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="poa" class="java.lang.String"/>
+	<field name="producto" class="java.lang.String"/>
+	<field name="responsableR" class="java.lang.String"/>
+	<field name="cump" class="java.math.BigDecimal"/>
+	<field name="ponderacion" class="java.math.BigDecimal"/>
+	<field name="areaTematica" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="5" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement key="" mode="Opaque" x="220" y="0" width="480" height="40" forecolor="#160EED" uuid="d1fb9286-bb06-42fe-b578-c51cff718d88"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="SansSerif" size="24" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">UNIVERSIDAD MAYOR DE SAN SIMÓN</style>]]></text>
+			</staticText>
+			<image>
+				<reportElement x="80" y="0" width="70" height="50" uuid="cd83eaa8-9b50-4d79-82d0-52cb1640a65b"/>
+				<imageExpression><![CDATA["UMSS.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="800" y="0" width="100" height="50" uuid="f815d0d5-7813-463e-b815-2c03407b73e4"/>
+				<imageExpression><![CDATA["LOGO FACH.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="60" y="60" width="160" height="20" uuid="75031029-a29d-4850-a0be-c958eb9d1e61"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gesti}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="60" height="20" forecolor="#160EED" uuid="6df4d1da-95eb-4800-9d0f-54e861ec4434"/>
+				<textElement markup="styled">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">GESTIÓN:</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="230" y="50" width="430" height="20" forecolor="#160EED" uuid="9b935b26-de49-4c2e-ae1f-3ca4d0209a39"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">REPORTE-INSTITUTO DE INVESTIGACIONES-ADMINISTRATIVO</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" mode="Opaque" x="240" y="30" width="401" height="20" forecolor="#160EED" uuid="8fb7761f-abd5-400d-9720-9d35e939f516"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">FACULTAD DE ARQUITECTURA Y CIENCIAS DEL HÁBITAT</style>]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="90" y="20" width="70" height="19" forecolor="#160EED" uuid="8e3bc5cf-c199-47ff-90e0-16de23d85c88"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="21" width="90" height="16" forecolor="#160EED" uuid="f14b2695-b17b-45f1-90a3-21ac5dfedade"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADMINISTRATIVO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="23" width="70" height="16" forecolor="#160EED" uuid="2d5c836b-fcb5-4867-b41d-610f590168a7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-MAIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="23" width="110" height="16" forecolor="#160EED" uuid="34e90429-4f6f-4594-95f9-aa0d74fbd0ab"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CARGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="21" width="120" height="16" forecolor="#160EED" uuid="f51c93dd-e3cc-454d-a29c-05eb6468121f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[POA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="21" width="110" height="16" forecolor="#160EED" uuid="11c8b82f-69fa-4a01-bb61-26d6586ed37b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="620" y="1" width="90" height="36" forecolor="#160EED" uuid="0984917d-d39f-41f7-853b-229593fe53f5"/>
+				<textElement>
+					<font isBold="true"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<text><![CDATA[RESPONSABLE DE REVISIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="710" y="21" width="80" height="16" forecolor="#160EED" uuid="9fc5c159-1982-4d40-802d-e1232cd8c2dc"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[%CUMPLIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" x="790" y="3" width="60" height="36" forecolor="#160EED" uuid="1f8ebf87-2492-41bf-bdae-7a9129edb3e1"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+					<paragraph lineSpacing="Double"/>
+				</textElement>
+				<text><![CDATA[EVALUACIÓN FINAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="850" y="20" width="120" height="19" forecolor="#160EED" uuid="ffcb2840-6a16-48d3-9197-1d595c77b98e"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[ÁREA TEMATICA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="204" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="970" height="204" backcolor="#DCDCDC" uuid="7f74f145-5093-4914-b27d-23332b42bd4f">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineColor="#FFFFFF"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="80" height="204" uuid="d7c43f22-c6e8-4d27-850b-acc8bfb5494f"/>
+				<textFieldExpression><![CDATA[$F{grado}+" "+$F{apellidos}+" "+$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="70" height="204" uuid="c02fb7b3-14c2-4101-8f9d-d7af46c94d16"/>
+				<textFieldExpression><![CDATA[$F{telf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="70" height="204" uuid="a46e5e75-2507-4a85-903b-42410c3c021e"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="110" height="204" uuid="748dfef9-04b9-4e70-9451-12e264aa1154"/>
+				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="120" height="204" uuid="f6b10e48-bc98-4f70-80ba-95ffde0c7480"/>
+				<textFieldExpression><![CDATA[$F{poa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="110" height="204" uuid="c06979bd-d54a-4e12-bc4d-40ebdb41c428"/>
+				<textFieldExpression><![CDATA[$F{producto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="0" width="100" height="204" uuid="9edef8aa-1f5c-4ab6-8797-fc17b6185b3a"/>
+				<textFieldExpression><![CDATA[$F{responsableR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="730" y="0" width="50" height="204" uuid="4a04ca8e-4b63-49de-8d8e-789fb7d5584a"/>
+				<textFieldExpression><![CDATA[$F{cump}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="790" y="0" width="50" height="204" uuid="e1070cc7-dc42-4fdb-a1ff-6c81ddd4b732"/>
+				<textFieldExpression><![CDATA[$F{ponderacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="850" y="0" width="120" height="204" uuid="c7bcde1e-5df1-4aab-b0a4-0b66901c66b4"/>
+				<textFieldExpression><![CDATA[$F{areaTematica}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="3" width="100" height="16" uuid="d3cecaeb-c4ec-4f73-ba40-ae596122e69a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="740" y="3" width="90" height="30" uuid="f254581b-b645-42ef-972b-5637b97950f1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="857" y="3" width="100" height="30" uuid="6389c1f2-c9cb-4a67-a32a-6b455b213ae3"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["     de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="9" splitType="Stretch"/>
+	</summary>
+</jasperReport>

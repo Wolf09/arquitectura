@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2016-10-04T01:27:29 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RMateria" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="968" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f6b7266-4822-40c5-8e6e-ec200a210603">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="meConectO"/>
+	<parameter name="gesti" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT administracion1.actividades.grado,
+	administracion1.actividades.apellidos,
+	administracion1.actividades.nombres,
+	administracion1.actividades.act,
+	administracion1.subactividades.`subA`,
+	administracion1.subactividades.cump,
+	administracion1.subactividades.pp,
+	administracion1.subactividades.sp,
+	administracion1.subactividades.pf
+FROM administracion1.subactividades,
+	administracion1.actividades
+WHERE 
+	 administracion1.subactividades.gestion = administracion1.actividades.gestion 
+	 AND administracion1.subactividades.`codA` = administracion1.actividades.`codA` 
+	 AND administracion1.subactividades.act = administracion1.actividades.act 
+	 AND administracion1.actividades.gestion = $P{gesti} 
+ORDER BY administracion1.actividades.apellidos ASC,
+	administracion1.actividades.nombres ASC]]>
+	</queryString>
+	<field name="grado" class="java.lang.String"/>
+	<field name="apellidos" class="java.lang.String"/>
+	<field name="nombres" class="java.lang.String"/>
+	<field name="act" class="java.lang.String"/>
+	<field name="subA" class="java.lang.String"/>
+	<field name="cump" class="java.math.BigDecimal"/>
+	<field name="pp" class="java.math.BigDecimal"/>
+	<field name="sp" class="java.math.BigDecimal"/>
+	<field name="pf" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="5" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="81" splitType="Stretch">
+			<image>
+				<reportElement x="80" y="0" width="70" height="60" uuid="cd83eaa8-9b50-4d79-82d0-52cb1640a65b"/>
+				<imageExpression><![CDATA["UMSS.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="800" y="0" width="100" height="60" uuid="f815d0d5-7813-463e-b815-2c03407b73e4"/>
+				<imageExpression><![CDATA["LOGO FACH.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="60" y="60" width="140" height="20" uuid="75031029-a29d-4850-a0be-c958eb9d1e61"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{gesti}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="" mode="Opaque" x="220" y="0" width="480" height="40" forecolor="#160EED" uuid="364fb556-84ae-4541-9c9e-bd25bafc2177"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="SansSerif" size="24" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">UNIVERSIDAD MAYOR DE SAN SIMÓN</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" mode="Opaque" x="240" y="30" width="401" height="20" forecolor="#160EED" uuid="064950f7-54c1-40c6-9865-a035d6fba617"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="SansSerif" size="14" isBold="true" isUnderline="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">FACULTAD DE ARQUITECTURA Y CIENCIAS DEL HÁBITAT</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="231" y="50" width="410" height="20" forecolor="#160EED" uuid="182ef4ad-b078-4c72-aebf-9e9d85ebbd3b"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement markup="styled">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">REPORTE-PERSONAL ADMINISTRATIVO-SUB-ACTIVIDADES</style>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="60" height="20" forecolor="#160EED" uuid="e18a35d3-c82b-47e3-bdc0-efb857105b1d"/>
+				<textElement markup="styled">
+					<font fontName="SansSerif" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[<style isBold="true" pdfFontName="Helvetica-Bold">GESTIÓN:</style>]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="19" width="110" height="20" forecolor="#160EED" uuid="188c551b-2fc0-4523-be82-0ed91add3bb2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADMINISTRATIVO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="17" width="273" height="20" forecolor="#160EED" uuid="9b8f10ae-1b64-4682-ac16-3ae598103d73"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACTIVIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="19" width="290" height="20" forecolor="#160EED" uuid="d251630c-c67e-49f6-aa4a-15ef82424bd2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUB-ACTIVIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="-1" width="60" height="40" forecolor="#160EED" uuid="a863881f-fed5-46d7-93a7-55b38cfd7384"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%CUMPLIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="760" y="9" width="70" height="28" forecolor="#160EED" uuid="9436005d-fc89-4f8d-a2e7-d4dd8d677255"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRIMER PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="835" y="8" width="61" height="30" forecolor="#160EED" uuid="e73b1f7c-c96e-4d7c-b4fb-44111ffaac7b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEGUNDO PRODUCTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="900" y="8" width="57" height="30" forecolor="#160EED" uuid="e59b4a0a-fb9b-4a4b-9dbc-b2e5883c3bb2"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUCTO FINAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="124" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="957" height="124" forecolor="#000000" backcolor="#DCDCDC" uuid="3091a6a2-3289-4da5-b0b6-0ddf6779634d">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineColor="#FFFFFF"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="110" height="124" uuid="78a44a8d-ba0a-4d71-9107-a10674c84f76"/>
+				<textFieldExpression><![CDATA[$F{grado}+" "+$F{apellidos}+" "+$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="273" height="124" uuid="0f0df385-4175-4069-8d49-6f8ca2f08692"/>
+				<textFieldExpression><![CDATA[$F{act}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="290" height="124" uuid="37c2be85-3e86-4253-a863-86b83780da84"/>
+				<textFieldExpression><![CDATA[$F{subA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="700" y="0" width="60" height="124" uuid="d947d7dc-af7b-4645-9a79-396038a243e1"/>
+				<textFieldExpression><![CDATA[$F{cump}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="770" y="-2" width="60" height="126" uuid="c08899b6-1db8-4d13-be7c-6e8e71e20d99"/>
+				<textFieldExpression><![CDATA[$F{pp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="900" y="0" width="57" height="124" uuid="68ecde36-124f-44c4-8262-a1a164a947e9"/>
+				<textFieldExpression><![CDATA[$F{pf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="835" y="0" width="61" height="124" uuid="24bc9827-f6f3-401c-9433-da66b5bdb175"/>
+				<textFieldExpression><![CDATA[$F{sp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="18" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="48" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="10" width="100" height="16" uuid="d3cecaeb-c4ec-4f73-ba40-ae596122e69a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="740" y="10" width="90" height="30" uuid="f254581b-b645-42ef-972b-5637b97950f1"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="857" y="10" width="100" height="30" uuid="6389c1f2-c9cb-4a67-a32a-6b455b213ae3"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA["     de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="9" splitType="Stretch"/>
+	</summary>
+</jasperReport>
